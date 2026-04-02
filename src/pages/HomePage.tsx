@@ -23,7 +23,7 @@ const ImageSizeDialog = ({ onResize, onPreviewOnly }: ImageSizeDialogProps) => (
     role="alertdialog"
     aria-labelledby="img-dialog-title"
     aria-describedby="img-dialog-desc"
-    className="w-full bg-white/8 backdrop-blur-xl border border-amber-400/30 rounded-2xl p-5 flex flex-col gap-4"
+    className="w-full bg-[#30302e] border border-[#c96442]/30 rounded-2xl p-5 flex flex-col gap-4"
   >
     <div className="flex items-start gap-3">
       <svg
@@ -35,7 +35,7 @@ const ImageSizeDialog = ({ onResize, onPreviewOnly }: ImageSizeDialogProps) => (
         strokeWidth="1.8"
         strokeLinecap="round"
         strokeLinejoin="round"
-        className="shrink-0 mt-0.5 text-amber-400"
+        className="shrink-0 mt-0.5 text-[#c96442]"
         aria-hidden="true"
       >
         <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
@@ -45,13 +45,13 @@ const ImageSizeDialog = ({ onResize, onPreviewOnly }: ImageSizeDialogProps) => (
       <div>
         <p
           id="img-dialog-title"
-          className="text-sm font-medium text-[var(--color-text-primary)]"
+          className="text-sm font-medium text-[#faf9f5]"
         >
           이미지가 공유 가능 크기를 초과합니다
         </p>
         <p
           id="img-dialog-desc"
-          className="text-xs text-[var(--color-text-muted)] mt-1"
+          className="text-xs text-[#87867f] mt-1"
         >
           이미지를 축소하여 공유하거나, 미리보기만 볼 수 있습니다.
         </p>
@@ -61,14 +61,14 @@ const ImageSizeDialog = ({ onResize, onPreviewOnly }: ImageSizeDialogProps) => (
       <button
         type="button"
         onClick={onResize}
-        className="flex-1 px-3 py-2 rounded-xl text-xs font-medium bg-[var(--color-accent-violet)]/20 border border-[var(--color-accent-violet)]/40 text-[var(--color-accent-violet)] hover:bg-[var(--color-accent-violet)]/30 transition-colors focus-ring focus:outline-none"
+        className="flex-1 px-3 py-2 rounded-xl text-xs font-medium bg-[#c96442]/20 border border-[#c96442]/40 text-[#c96442] hover:bg-[#c96442]/30 transition-colors focus-ring focus:outline-none"
       >
         줄여서 공유
       </button>
       <button
         type="button"
         onClick={onPreviewOnly}
-        className="flex-1 px-3 py-2 rounded-xl text-xs font-medium bg-white/5 border border-white/15 text-[var(--color-text-secondary)] hover:bg-white/10 transition-colors focus-ring focus:outline-none"
+        className="flex-1 px-3 py-2 rounded-xl text-xs font-medium bg-[#30302e] border border-[#4d4c48] text-[#87867f] hover:bg-[#4d4c48] transition-colors focus-ring focus:outline-none"
       >
         미리보기만
       </button>
@@ -194,7 +194,7 @@ const HomePage = () => {
       {!isClipboardSupported && (
         <div
           role="alert"
-          className="w-full bg-white/8 backdrop-blur-xl border border-red-400/30 rounded-2xl px-5 py-4 flex items-start gap-3 text-sm"
+          className="w-full bg-[#30302e] border border-[#b53333]/30 rounded-2xl px-5 py-4 flex items-start gap-3 text-sm"
         >
           <svg
             width="16"
@@ -207,7 +207,7 @@ const HomePage = () => {
             <circle cx="8" cy="8" r="7" stroke="currentColor" strokeWidth="1.4" />
             <path d="M8 5v4M8 10.5v.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
           </svg>
-          <span className="text-[var(--color-text-secondary)]">
+          <span className="text-[#b0aea5]">
             이 브라우저는 클립보드 붙여넣기를 지원하지 않습니다. 최신 브라우저(Chrome, Firefox, Safari)를 사용해 주세요.
           </span>
         </div>

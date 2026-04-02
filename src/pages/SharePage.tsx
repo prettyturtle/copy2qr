@@ -80,7 +80,7 @@ const SharePage = () => {
   // 공통 헤더 — 안내 배너
   const renderBanner = () => (
     <header className="text-center mb-8">
-      <p className="inline-flex items-center gap-2 text-xs text-[var(--color-text-muted)] tracking-wide uppercase px-3 py-1 rounded-full border border-[var(--color-border-subtle)] bg-white/[0.03]">
+      <p className="inline-flex items-center gap-2 text-xs text-[#87867f] tracking-wide uppercase px-3 py-1 rounded-full border border-[#30302e] bg-[#30302e]">
         <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
           <circle cx="6" cy="6" r="5" stroke="currentColor" strokeWidth="1.4" />
           <path d="M6 5v4M6 3.5v.5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
@@ -103,7 +103,7 @@ const SharePage = () => {
               viewBox="0 0 40 40"
               fill="none"
               aria-hidden="true"
-              className="text-[var(--color-text-muted)]"
+              className="text-[#87867f]"
             >
               <circle cx="20" cy="20" r="18" stroke="currentColor" strokeWidth="1.5" />
               <path
@@ -114,10 +114,10 @@ const SharePage = () => {
               />
             </svg>
             <div>
-              <p className="font-semibold text-[var(--color-text-primary)] mb-1">
+              <p className="font-semibold text-[#faf9f5] mb-1">
                 공유 데이터를 복원할 수 없습니다
               </p>
-              <p className="text-sm text-[var(--color-text-secondary)]">
+              <p className="text-sm text-[#b0aea5]">
                 링크가 올바르지 않거나 만료됐을 수 있습니다.
               </p>
             </div>
@@ -125,9 +125,9 @@ const SharePage = () => {
               to="/"
               className={[
                 'mt-2 inline-flex items-center gap-1.5 text-sm',
-                'text-[var(--color-accent-violet)]',
-                'hover:text-[var(--color-accent-blue)] transition-colors duration-150',
-                'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-violet)]',
+                'text-[#d97757]',
+                'hover:text-[#c96442] transition-colors duration-150',
+                'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c96442]',
               ].join(' ')}
             >
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
@@ -152,7 +152,7 @@ const SharePage = () => {
   if (payload === null) {
     return (
       <main className="min-h-dvh flex items-center justify-center">
-        <span className="text-[var(--color-text-muted)] text-sm">불러오는 중…</span>
+        <span className="text-[#87867f] text-sm">불러오는 중…</span>
       </main>
     )
   }
@@ -170,11 +170,11 @@ const SharePage = () => {
           <Card>
             <div className="flex flex-col gap-4">
               <div className="flex items-center gap-2">
-                <span className="text-xs font-semibold uppercase tracking-wider text-[var(--color-text-muted)]">
+                <span className="text-xs font-semibold uppercase tracking-wider text-[#87867f]">
                   텍스트
                 </span>
               </div>
-              <p className="text-[var(--color-text-primary)] leading-relaxed whitespace-pre-wrap break-words text-sm">
+              <p className="text-[#faf9f5] leading-relaxed whitespace-pre-wrap break-words text-sm">
                 {payload.data}
               </p>
               <div className="flex justify-end">
@@ -200,7 +200,7 @@ const SharePage = () => {
           <Card>
             <div className="flex flex-col gap-4">
               <div className="flex items-center gap-2">
-                <span className="text-xs font-semibold uppercase tracking-wider text-[var(--color-text-muted)]">
+                <span className="text-xs font-semibold uppercase tracking-wider text-[#87867f]">
                   링크
                 </span>
               </div>
@@ -210,9 +210,9 @@ const SharePage = () => {
                 rel="noopener noreferrer"
                 className={[
                   'text-sm break-all',
-                  'text-[var(--color-accent-blue)]',
-                  'hover:text-[var(--color-accent-violet)] transition-colors duration-150',
-                  'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-violet)]',
+                  'text-[#d97757]',
+                  'hover:text-[#c96442] transition-colors duration-150',
+                  'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c96442]',
                 ].join(' ')}
               >
                 {payload.data}
@@ -264,7 +264,7 @@ const SharePage = () => {
             <Card>
               <div className="flex flex-col gap-4">
                 <div className="flex items-center gap-2">
-                  <span className="text-xs font-semibold uppercase tracking-wider text-[var(--color-text-muted)]">
+                  <span className="text-xs font-semibold uppercase tracking-wider text-[#87867f]">
                     이미지
                   </span>
                 </div>
@@ -274,7 +274,7 @@ const SharePage = () => {
                   className={[
                     'rounded-xl overflow-hidden',
                     'bg-[rgba(255,255,255,0.03)]',
-                    'border border-[var(--color-border-subtle)]',
+                    'border border-[#30302e]',
                     'flex items-center justify-center',
                     'max-h-64',
                   ].join(' ')}
@@ -356,9 +356,9 @@ const SharePage = () => {
           to="/"
           className={[
             'inline-flex items-center gap-1.5',
-            'text-sm text-[var(--color-text-secondary)]',
-            'hover:text-[var(--color-accent-violet)] transition-colors duration-150',
-            'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-violet)]',
+            'text-sm text-[#b0aea5]',
+            'hover:text-[#d97757] transition-colors duration-150',
+            'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c96442]',
           ].join(' ')}
         >
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">

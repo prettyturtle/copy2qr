@@ -53,14 +53,13 @@ const Modal = ({ isOpen, onClose, children }: ModalProps) => {
       className={[
         'fixed inset-0 z-50',
         'flex items-center justify-center',
-        'bg-black/60 px-4',
-        'backdrop-blur-[2px] [-webkit-backdrop-filter:blur(2px)]',
+        'bg-[#141413]/80 px-4',
       ].join(' ')}
     >
       <div
         className={[
           'relative w-full max-w-lg',
-          'glass',
+          'bg-[#30302e] border border-[#30302e] rounded-2xl',
           'p-6',
           'animate-in fade-in zoom-in-95 duration-200',
         ].join(' ')}

@@ -37,20 +37,20 @@ export const PasteZone = ({ onPaste, hasPastedData }: PasteZoneProps) => {
     <section aria-label="붙여넣기 영역">
       <Card className="cursor-default">
         <div
-          className="border-2 border-dashed border-white/20 rounded-xl px-8 py-14 flex flex-col items-center gap-4 text-[var(--color-text-secondary)] transition-colors hover:border-[var(--color-accent-violet)]/50 hover:text-[var(--color-text-primary)]"
+          className="border-2 border-dashed border-[#4d4c48] rounded-xl px-8 py-14 flex flex-col items-center gap-4 text-[#87867f] transition-colors hover:border-[#b0aea5]/50 hover:text-[#faf9f5]"
           role="presentation"
         >
-          <span className="text-[var(--color-text-muted)] transition-colors group-hover:text-[var(--color-accent-violet)]">
+          <span className="text-[#87867f] transition-colors">
             <ClipboardIcon />
           </span>
           <div className="text-center space-y-1">
-            <p className="text-base font-medium text-[var(--color-text-primary)]">
-              <kbd className="px-1.5 py-0.5 text-xs font-mono rounded bg-white/10 border border-white/15 mr-1">
+            <p className="text-base font-medium text-[#faf9f5]">
+              <kbd className="px-1.5 py-0.5 text-xs font-mono rounded bg-[#4d4c48] border border-[#4d4c48] mr-1">
                 Ctrl+V
               </kbd>
               로 붙여넣기
             </p>
-            <p className="text-sm text-[var(--color-text-muted)]">
+            <p className="text-sm text-[#87867f]">
               텍스트, URL, 이미지를 지원합니다
             </p>
           </div>

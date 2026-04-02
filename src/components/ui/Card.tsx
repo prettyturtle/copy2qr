@@ -8,14 +8,13 @@ interface CardProps {
 const Card = ({ children, className = '' }: CardProps) => (
   <div
     className={[
-      'bg-white/5',
-      'backdrop-blur-xl',
-      'border border-white/10',
-      'rounded-2xl',
+      'bg-[#30302e]',
+      'border border-[#30302e]',
+      'rounded-xl',
       'p-6',
-      'shadow-[0_4px_24px_rgba(0,0,0,0.3)]',
+      'shadow-[0_2px_8px_rgba(0,0,0,0.20)]',
       'transition-[transform,box-shadow] duration-200 ease-out',
-      'hover:-translate-y-0.5 hover:shadow-[0_8px_32px_rgba(0,0,0,0.4)]',
+      'hover:-translate-y-0.5 hover:shadow-[0_6px_20px_rgba(0,0,0,0.20)]',
       className,
     ]
       .filter(Boolean)

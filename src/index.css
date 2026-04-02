@@ -1,27 +1,27 @@
 @import "tailwindcss";
 
 @theme {
-  /* 색상 토큰 */
-  --color-bg-base: #0f0f23;
-  --color-bg-surface: #16162a;
-  --color-bg-elevated: #1e1e38;
+  /* 색상 토큰 — Claude/Anthropic 따뜻한 다크 시스템 */
+  --color-bg-page: #141413;
+  --color-bg-card: #30302e;
+  --color-bg-nav: rgba(20, 20, 19, 0.92);
 
-  --color-accent-violet: #7c5af0;
-  --color-accent-blue: #4f8ef7;
-  --color-accent-violet-dim: #5c3dc8;
+  --color-text-primary: #faf9f5;
+  --color-text-secondary: #87867f;
+  --color-text-tertiary: #b0aea5;
 
-  --color-text-primary: #e8e8f0;
-  --color-text-secondary: #9898b8;
-  --color-text-muted: #5a5a7a;
+  --color-border: #30302e;
 
-  --color-border-subtle: rgba(255, 255, 255, 0.08);
-  --color-border-glass: rgba(255, 255, 255, 0.12);
+  --color-terracotta: #c96442;
+  --color-coral: #d97757;
+  --color-error: #b53333;
+  --color-focus-blue: #3898ec;
+  --color-charcoal-warm: #4d4c48;
+  --color-ring-warm: #d1cfc5;
 
   /* 타이포그래피 */
-  --font-sans: 'Plus Jakarta Sans', 'Outfit', system-ui, sans-serif;
-
-  /* 블러 */
-  --blur-glass: 12px;
+  --font-serif: Georgia, 'Times New Roman', serif;
+  --font-sans: system-ui, Arial, sans-serif;
 }
 
 /* 기반 스타일 */
@@ -31,9 +31,10 @@
   }
 
   html {
-    background-color: var(--color-bg-base);
+    background-color: var(--color-bg-page);
     color: var(--color-text-primary);
     font-family: var(--font-sans);
+    line-height: 1.60;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -41,24 +42,11 @@
   body {
     margin: 0;
     min-height: 100dvh;
-    background-color: var(--color-bg-base);
-  }
-
-  /* 배경 노이즈 텍스처 — 깊이감을 주는 서브틀 패턴 */
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image:
-      radial-gradient(ellipse 80% 50% at 20% 10%, rgba(124, 90, 240, 0.12) 0%, transparent 60%),
-      radial-gradient(ellipse 60% 40% at 80% 80%, rgba(79, 142, 247, 0.08) 0%, transparent 55%);
-    pointer-events: none;
-    z-index: 0;
+    background-color: var(--color-bg-page);
   }
 
   #root {
     position: relative;
-    z-index: 1;
   }
 }
 
@@ -94,46 +82,23 @@
   }
 }
 
-/* 글래스모피즘 유틸리티 */
+/* 유틸리티 */
 @layer utilities {
-  .glass {
-    background: rgba(22, 22, 42, 0.6);
-    backdrop-filter: blur(var(--blur-glass));
-    -webkit-backdrop-filter: blur(var(--blur-glass));
-    border: 1px solid var(--color-border-glass);
-    border-radius: 0.75rem;
-  }
-
-  .glass-subtle {
-    background: rgba(22, 22, 42, 0.35);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid var(--color-border-subtle);
-    border-radius: 0.5rem;
-  }
-
-  /* 보라/파랑 그라데이션 액센트 */
-  .gradient-accent {
-    background: linear-gradient(135deg, var(--color-accent-violet) 0%, var(--color-accent-blue) 100%);
-  }
-
-  .gradient-accent-text {
-    background: linear-gradient(135deg, var(--color-accent-violet) 0%, var(--color-accent-blue) 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+  /* ring shadow 패턴 — border 대신 shadow */
+  .ring-warm {
+    box-shadow: 0px 0px 0px 1px var(--color-ring-warm);
   }
 
   /* 포커스 링 — 접근성 */
   .focus-ring {
-    outline: 2px solid var(--color-accent-violet);
+    outline: 2px solid var(--color-focus-blue);
     outline-offset: 2px;
   }
 
   /* 스크롤바 */
   .scrollbar-thin {
     scrollbar-width: thin;
-    scrollbar-color: var(--color-text-muted) transparent;
+    scrollbar-color: var(--color-text-secondary) transparent;
   }
 
   /* 애니메이션 유틸리티 */

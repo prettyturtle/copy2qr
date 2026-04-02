@@ -29,11 +29,10 @@ const ToastItem = ({ toast, onRemove }: ToastItemProps) => {
       aria-live="polite"
       className={[
         'flex items-center justify-between gap-3 px-4 py-3',
-        'rounded-xl border border-[--color-border-glass]',
-        'bg-[rgba(22,22,42,0.75)] text-[--color-text-primary]',
-        'shadow-lg',
+        'rounded-xl border border-[#4d4c48]',
+        'bg-[#30302e] text-[#faf9f5]',
+        'shadow-[#000_0_0_0_0,#000_0_0_0_1px,0_4px_12px_rgba(0,0,0,0.30)]',
         'transition-all duration-300 ease-out',
-        'backdrop-blur-[12px] [-webkit-backdrop-filter:blur(12px)]',
         visible
           ? 'translate-x-0 opacity-100'
           : 'translate-x-8 opacity-0',
@@ -46,8 +45,8 @@ const ToastItem = ({ toast, onRemove }: ToastItemProps) => {
         aria-label="닫기"
         className={[
           'shrink-0 rounded-md p-1',
-          'text-[--color-text-secondary] transition-colors duration-150',
-          'hover:text-[--color-text-primary] hover:bg-white/10',
+          'text-[#87867f] transition-colors duration-150',
+          'hover:text-[#faf9f5] hover:bg-[#4d4c48]/50',
           'focus-ring focus:outline-none',
         ].join(' ')}
       >

@@ -65,7 +65,7 @@ const ImageViewer = ({ src, isOpen, onClose }: ImageViewerProps) => {
       <div className="flex flex-col gap-4">
         {/* 헤더 */}
         <div className="flex items-center justify-between">
-          <h2 className="text-sm font-semibold text-[var(--color-text-secondary)] tracking-wide uppercase">
+          <h2 className="text-sm font-semibold text-[#87867f] tracking-wide uppercase">
             이미지 뷰어
           </h2>
           <button
@@ -74,10 +74,10 @@ const ImageViewer = ({ src, isOpen, onClose }: ImageViewerProps) => {
             aria-label="뷰어 닫기"
             className={[
               'rounded-lg p-1.5',
-              'text-[var(--color-text-secondary)]',
-              'hover:text-[var(--color-text-primary)] hover:bg-white/10',
+              'text-[#b0aea5]',
+              'hover:text-[#faf9f5] hover:bg-[#30302e]',
               'transition-colors duration-150',
-              'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-violet)]',
+              'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c96442]',
             ].join(' ')}
           >
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
@@ -96,7 +96,7 @@ const ImageViewer = ({ src, isOpen, onClose }: ImageViewerProps) => {
           className={[
             'relative overflow-hidden rounded-xl',
             'bg-[rgba(255,255,255,0.03)]',
-            'border border-[var(--color-border-subtle)]',
+            'border border-[#30302e]',
             'flex items-center justify-center',
             'min-h-[260px] max-h-[60vh]',
           ].join(' ')}
@@ -124,12 +124,12 @@ const ImageViewer = ({ src, isOpen, onClose }: ImageViewerProps) => {
               aria-label="축소"
               className={[
                 'w-8 h-8 flex items-center justify-center rounded-lg',
-                'border border-[var(--color-border-glass)]',
-                'text-[var(--color-text-primary)]',
-                'hover:bg-white/8 active:bg-white/12',
+                'border border-[#4d4c48]',
+                'text-[#faf9f5]',
+                'hover:bg-[#30302e] active:bg-[#4d4c48]',
                 'disabled:opacity-30 disabled:cursor-not-allowed',
                 'transition-colors duration-150',
-                'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-violet)]',
+                'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c96442]',
               ].join(' ')}
             >
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
@@ -138,7 +138,7 @@ const ImageViewer = ({ src, isOpen, onClose }: ImageViewerProps) => {
             </button>
 
             <span
-              className="min-w-[3.5rem] text-center text-sm font-medium tabular-nums text-[var(--color-text-secondary)]"
+              className="min-w-[3.5rem] text-center text-sm font-medium tabular-nums text-[#b0aea5]"
               aria-live="polite"
               aria-label={`현재 배율 ${scalePercent}%`}
             >
@@ -152,12 +152,12 @@ const ImageViewer = ({ src, isOpen, onClose }: ImageViewerProps) => {
               aria-label="확대"
               className={[
                 'w-8 h-8 flex items-center justify-center rounded-lg',
-                'border border-[var(--color-border-glass)]',
-                'text-[var(--color-text-primary)]',
-                'hover:bg-white/8 active:bg-white/12',
+                'border border-[#4d4c48]',
+                'text-[#faf9f5]',
+                'hover:bg-[#30302e] active:bg-[#4d4c48]',
                 'disabled:opacity-30 disabled:cursor-not-allowed',
                 'transition-colors duration-150',
-                'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-violet)]',
+                'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c96442]',
               ].join(' ')}
             >
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
@@ -179,12 +179,12 @@ const ImageViewer = ({ src, isOpen, onClose }: ImageViewerProps) => {
             aria-label="원래 크기로 초기화"
             className={[
               'px-3 py-1.5 rounded-lg text-sm',
-              'text-[var(--color-text-secondary)]',
-              'border border-[var(--color-border-glass)]',
-              'hover:text-[var(--color-text-primary)] hover:bg-white/8',
+              'text-[#b0aea5]',
+              'border border-[#4d4c48]',
+              'hover:text-[#faf9f5] hover:bg-[#30302e]',
               'disabled:opacity-30 disabled:cursor-not-allowed',
               'transition-colors duration-150',
-              'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-violet)]',
+              'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c96442]',
             ].join(' ')}
           >
             초기화

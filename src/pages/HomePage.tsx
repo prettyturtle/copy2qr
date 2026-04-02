@@ -2,7 +2,7 @@ import { useState, useRef, useCallback } from "react";
 import type { PasteData } from "../types";
 import { useShareData } from "../hooks/useShareData";
 import { useToast } from "../hooks/useToast";
-import { isImageOversized, resizeImage } from "../utils/image";
+import { resizeImage } from "../utils/image";
 import PasteZone from "../components/PasteZone";
 import Preview from "../components/Preview";
 import QRCodeDisplay from "../components/QRCodeDisplay";
@@ -10,8 +10,8 @@ import type { QRCodeDisplayHandle } from "../components/QRCodeDisplay";
 import ActionBar from "../components/ActionBar";
 import ToastContainer from "../components/ui/Toast";
 
-// 이미지 URL 길이 기준: 공유 URL에 넣기에 적합한 압축 후 최대 바이트
-const IMAGE_MAX_BYTES = 150_000;
+// QR 코드 최대 인코딩 가능 길이 (Level M 기준 약 2,953 바이트, 여유분 확보)
+const QR_MAX_URL_LENGTH = 2_500;
 
 interface ImageSizeDialogProps {
   onResize: () => void;
@@ -94,8 +94,8 @@ const HomePage = () => {
   const handlePaste = useCallback(
     async (data: PasteData) => {
       if (data.type === "image") {
-        const oversized = isImageOversized(data.content, IMAGE_MAX_BYTES);
-        if (oversized) {
+        const url = buildShareUrl(data);
+        if (url.length > QR_MAX_URL_LENGTH) {
           setPendingImageData(data);
           return;
         }
@@ -116,8 +116,9 @@ const HomePage = () => {
         content: resized,
         timestamp: Date.now(),
       };
-      // 리사이즈 후에도 여전히 URL 크기 초과 시 — 공유 불가 안내 후 미리보기만 표시
-      if (isImageOversized(resized, IMAGE_MAX_BYTES)) {
+      // 리사이즈 후에도 여전히 URL 길이 초과 시 — 공유 불가 안내 후 미리보기만 표시
+      const resizedUrl = buildShareUrl(resizedData);
+      if (resizedUrl.length > QR_MAX_URL_LENGTH) {
         showToast("이미지를 충분히 줄일 수 없습니다. 미리보기만 표시합니다.");
         setPendingImageData(null);
         setPasteData(resizedData);
@@ -148,10 +149,18 @@ const HomePage = () => {
       const updated: PasteData = { ...pasteData, content };
       setPasteData(updated);
       if (!shareDisabled) {
-        setShareUrl(buildShareUrl(updated));
+        const url = buildShareUrl(updated);
+        if (url.length > QR_MAX_URL_LENGTH) {
+          setShareUrl("");
+          setShareDisabled(true);
+          showToast("내용이 너무 길어 QR 코드를 생성할 수 없습니다.");
+        } else {
+          setShareDisabled(false);
+          setShareUrl(url);
+        }
       }
     },
-    [pasteData, shareDisabled, buildShareUrl],
+    [pasteData, shareDisabled, buildShareUrl, showToast],
   );
 
   const handleCopyLink = useCallback(async () => {

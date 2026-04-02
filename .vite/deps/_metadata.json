@@ -1,0 +1,61 @@
+{
+  "hash": "0fa9d014",
+  "configHash": "9eb02d30",
+  "lockfileHash": "cd56791d",
+  "browserHash": "2430ef44",
+  "optimized": {
+    "react/jsx-dev-runtime": {
+      "src": "../../node_modules/react/jsx-dev-runtime.js",
+      "file": "react_jsx-dev-runtime.js",
+      "fileHash": "9e4165ea",
+      "needsInterop": true
+    },
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "4c6c12ef",
+      "needsInterop": true
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "be96ecad",
+      "needsInterop": true
+    },
+    "react-router": {
+      "src": "../../node_modules/react-router/dist/development/index.mjs",
+      "file": "react-router.js",
+      "fileHash": "9b1840a3",
+      "needsInterop": false
+    },
+    "qrcode.react": {
+      "src": "../../node_modules/qrcode.react/lib/esm/index.js",
+      "file": "qrcode__react.js",
+      "fileHash": "e785554e",
+      "needsInterop": false
+    },
+    "lz-string": {
+      "src": "../../node_modules/lz-string/libs/lz-string.js",
+      "file": "lz-string.js",
+      "fileHash": "92b2155d",
+      "needsInterop": true
+    },
+    "react-dom": {
+      "src": "../../node_modules/react-dom/index.js",
+      "file": "react-dom.js",
+      "fileHash": "db4dfca0",
+      "needsInterop": true
+    }
+  },
+  "chunks": {
+    "chunk-L3UBB3JA": {
+      "file": "chunk-L3UBB3JA.js"
+    },
+    "chunk-QYXY6RWP": {
+      "file": "chunk-QYXY6RWP.js"
+    },
+    "chunk-5WRI5ZAA": {
+      "file": "chunk-5WRI5ZAA.js"
+    }
+  }
+}

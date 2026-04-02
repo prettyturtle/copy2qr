@@ -34,7 +34,7 @@ const TextPreview = ({
   onChange: (v: string) => void;
 }) => (
   <textarea
-    className="w-full min-h-[120px] resize-y bg-transparent text-[var(--color-text-primary)] text-sm leading-relaxed placeholder:text-[var(--color-text-muted)] focus:outline-none focus-ring rounded-lg p-2 scrollbar-thin"
+    className="w-full min-h-[120px] resize-y bg-[#141413] border border-[#30302e] text-[#faf9f5] text-sm leading-relaxed placeholder:text-[#87867f] focus:outline-none focus:border-[#3898ec] rounded-xl px-3 py-2 scrollbar-thin transition-colors duration-150"
     value={content}
     onChange={(e) => onChange(e.target.value)}
     aria-label="텍스트 편집"
@@ -51,7 +51,7 @@ const UrlPreview = ({
   <div className="flex flex-col gap-3">
     <input
       type="text"
-      className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-sm text-[var(--color-text-primary)] focus:outline-none focus-ring placeholder:text-[var(--color-text-muted)]"
+      className="w-full bg-[#141413] border border-[#30302e] rounded-xl px-3 py-2 text-sm text-[#faf9f5] focus:outline-none focus:border-[#3898ec] placeholder:text-[#87867f] transition-colors duration-150"
       value={content}
       onChange={(e) => onChange(e.target.value)}
       aria-label="URL 편집"
@@ -60,7 +60,7 @@ const UrlPreview = ({
       href={content}
       target="_blank"
       rel="noopener noreferrer"
-      className="inline-flex items-center gap-1.5 text-xs text-[var(--color-accent-blue)] hover:text-[var(--color-accent-violet)] transition-colors truncate focus-ring rounded"
+      className="inline-flex items-center gap-1.5 text-xs text-[#d97757] hover:text-[#c96442] transition-colors truncate rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3898ec]"
     >
       <ExternalLinkIcon />
       <span className="truncate">{content}</span>
@@ -73,7 +73,7 @@ const ImagePreview = ({ content }: { content: string }) => (
     <img
       src={content}
       alt="붙여넣은 이미지"
-      className="max-w-full max-h-64 rounded-lg object-contain border border-white/10"
+      className="max-w-full max-h-64 rounded-xl object-contain border border-[#30302e]"
     />
   </div>
 );

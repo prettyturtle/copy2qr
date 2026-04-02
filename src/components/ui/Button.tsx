@@ -11,27 +11,23 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const variantClasses: Record<Variant, string> = {
   primary: [
-    'bg-gradient-to-r from-[var(--color-accent-violet)] to-[var(--color-accent-blue)]',
-    'text-white',
+    'bg-[#c96442] text-[#faf9f5]',
     'border-transparent',
-    'shadow-[0_0_16px_rgba(124,90,240,0.35)]',
-    'hover:brightness-110 hover:shadow-[0_0_28px_rgba(124,90,240,0.6)]',
-    'active:brightness-90 active:shadow-[0_0_12px_rgba(124,90,240,0.25)]',
+    'shadow-[#c96442_0_0_0_0,#c96442_0_0_0_1px]',
+    'hover:brightness-110',
+    'active:brightness-90',
   ].join(' '),
   secondary: [
-    'bg-transparent',
-    'text-[var(--color-text-primary)]',
-    'border border-[var(--color-border-glass)]',
-    'hover:bg-white/5 hover:border-white/20',
-    'active:bg-white/10',
+    'bg-[#141413] text-[#b0aea5]',
+    'border border-[#30302e]',
+    'hover:border-[#4d4c48]',
+    'active:brightness-90',
   ].join(' '),
   ghost: [
-    'bg-transparent',
-    'text-[var(--color-text-secondary)]',
+    'bg-transparent text-[#87867f]',
     'border-transparent',
-    'hover:text-[var(--color-text-primary)]',
-    'hover:bg-white/5',
-    'active:bg-white/10',
+    'hover:bg-[#30302e]/50',
+    'active:bg-[#30302e]',
   ].join(' '),
 };
 
@@ -52,7 +48,7 @@ const Button = ({
   const base = [
     'inline-flex items-center justify-center font-medium',
     'transition-all duration-150',
-    'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-violet)]',
+    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3898ec] focus-visible:ring-offset-2 focus-visible:ring-offset-[#141413]',
     'disabled:opacity-40 disabled:cursor-not-allowed disabled:pointer-events-none',
     'cursor-pointer select-none',
   ].join(' ');

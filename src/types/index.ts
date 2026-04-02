@@ -20,3 +20,17 @@ export interface SharePayload {
 
 /** 이미지 크기 초과 시 처리 방법 선택 */
 export type ImageSizeOption = "resize" | "preview-only";
+
+/** 공유 내역 구분 */
+export type HistoryType = "sent" | "received";
+
+/** 공유 히스토리 항목 */
+export interface HistoryEntry {
+  id: string;
+  historyType: HistoryType;
+  dataType: DataType;
+  content: string;
+  shareUrl: string;
+  createdAt: number;
+  preview: string;
+}

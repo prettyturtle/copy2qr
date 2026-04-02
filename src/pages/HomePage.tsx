@@ -2,6 +2,7 @@ import { useState, useRef, useCallback } from "react";
 import type { PasteData } from "../types";
 import { useShareData } from "../hooks/useShareData";
 import { useToast } from "../hooks/useToast";
+import { useHistory } from "../hooks/useHistory";
 import { resizeImage } from "../utils/image";
 import PasteZone from "../components/PasteZone";
 import Preview from "../components/Preview";
@@ -85,6 +86,7 @@ const HomePage = () => {
   const qrRef = useRef<QRCodeDisplayHandle>(null);
   const { encodeShareUrl, copyShareLink } = useShareData();
   const { toasts, showToast, removeToast } = useToast();
+  const { addEntry } = useHistory();
 
   const buildShareUrl = useCallback(
     (data: PasteData) => encodeShareUrl(data.content, data.type),
@@ -164,14 +166,24 @@ const HomePage = () => {
   );
 
   const handleCopyLink = useCallback(async () => {
-    if (!shareUrl) return;
+    if (!shareUrl || !pasteData) return;
     try {
       await copyShareLink(shareUrl);
+      addEntry({
+        historyType: "sent",
+        dataType: pasteData.type,
+        content: pasteData.type === "image" ? "" : pasteData.content,
+        shareUrl,
+        preview:
+          pasteData.type === "image"
+            ? "[이미지]"
+            : pasteData.content.slice(0, 50),
+      });
       showToast("링크가 복사되었습니다.");
     } catch {
       showToast("링크 복사에 실패했습니다.");
     }
-  }, [shareUrl, copyShareLink, showToast]);
+  }, [shareUrl, pasteData, copyShareLink, addEntry, showToast]);
 
   const handleDownloadQR = useCallback(() => {
     qrRef.current?.downloadQR();

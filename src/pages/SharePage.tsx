@@ -2,6 +2,7 @@ import { useEffect, useState, useCallback } from 'react'
 import { Link } from 'react-router'
 import { useShareData } from '../hooks/useShareData'
 import { useToast } from '../hooks/useToast'
+import { useHistory } from '../hooks/useHistory'
 import Button from '../components/ui/Button'
 import Card from '../components/ui/Card'
 import ToastContainer from '../components/ui/Toast'
@@ -11,6 +12,7 @@ import type { SharePayload } from '../types'
 const SharePage = () => {
   const { decodeShareData } = useShareData()
   const { toasts, showToast, removeToast } = useToast()
+  const { addEntry } = useHistory()
 
   const [payload, setPayload] = useState<SharePayload | null>(null)
   const [decodeError, setDecodeError] = useState(false)
@@ -23,8 +25,16 @@ const SharePage = () => {
       setDecodeError(true)
     } else {
       setPayload(result)
+      addEntry({
+        historyType: 'received',
+        dataType: result.type,
+        content: result.type === 'image' ? '' : result.data,
+        shareUrl: window.location.href,
+        preview:
+          result.type === 'image' ? '[이미지]' : result.data.slice(0, 50),
+      })
     }
-  }, [decodeShareData])
+  }, [decodeShareData, addEntry])
 
   // 텍스트 / URL 클립보드 복사
   const handleCopyText = useCallback(

@@ -1,3 +1,4 @@
+import { useCallback, useMemo } from "react";
 import type { PasteData } from "../types";
 import { useClipboard } from "../hooks/useClipboard";
 import Card from "./ui/Card";
@@ -27,7 +28,18 @@ const ClipboardIcon = () => (
 );
 
 export const PasteZone = ({ onPaste, hasPastedData }: PasteZoneProps) => {
-  useClipboard({ onPaste });
+  const { readFromClipboard } = useClipboard({ onPaste });
+
+  const isTouchDevice = useMemo(
+    () =>
+      typeof window !== "undefined" &&
+      ("ontouchstart" in window || navigator.maxTouchPoints > 0),
+    [],
+  );
+
+  const handleZoneClick = useCallback(async () => {
+    await readFromClipboard();
+  }, [readFromClipboard]);
 
   if (hasPastedData) {
     return null;
@@ -37,19 +49,27 @@ export const PasteZone = ({ onPaste, hasPastedData }: PasteZoneProps) => {
     <section aria-label="붙여넣기 영역">
       <Card className="cursor-default">
         <div
-          className="border-2 border-dashed border-[#4d4c48] rounded-xl px-8 py-14 flex flex-col items-center gap-4 text-[#87867f] transition-colors hover:border-[#b0aea5]/50 hover:text-[#faf9f5]"
-          role="presentation"
+          className="border-2 border-dashed border-[#4d4c48] rounded-xl px-8 py-14 flex flex-col items-center gap-4 text-[#87867f] transition-colors hover:border-[#b0aea5]/50 hover:text-[#faf9f5] active:border-[#b0aea5]/50 active:text-[#faf9f5]"
+          role="button"
+          tabIndex={0}
+          onClick={handleZoneClick}
         >
           <span className="text-[#87867f] transition-colors">
             <ClipboardIcon />
           </span>
           <div className="text-center space-y-1">
-            <p className="text-base font-medium text-[#faf9f5]">
-              <kbd className="px-1.5 py-0.5 text-xs font-mono rounded bg-[#4d4c48] border border-[#4d4c48] mr-1">
-                Ctrl+V
-              </kbd>
-              로 붙여넣기
-            </p>
+            {isTouchDevice ? (
+              <p className="text-base font-medium text-[#faf9f5]">
+                탭하여 붙여넣기
+              </p>
+            ) : (
+              <p className="text-base font-medium text-[#faf9f5]">
+                <kbd className="px-1.5 py-0.5 text-xs font-mono rounded bg-[#4d4c48] border border-[#4d4c48] mr-1">
+                  Ctrl+V
+                </kbd>
+                로 붙여넣기
+              </p>
+            )}
             <p className="text-sm text-[#87867f]">
               텍스트, URL, 이미지를 지원합니다
             </p>
